@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %} Historial {% endblock %}
+
+{% block body %}
+
+<header>
+    Historial de ventas
+</header>
+<main class="font">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    N°
+                </th>
+                <th>
+                    Bodega
+                </th>
+                <th>
+                    Panadería
+                </th>
+                <th>
+                    Total
+                </th>
+                <th>
+                    Día
+                </th>
+                <th>
+                    Mes
+                </th>
+                <th>
+                    Año
+                </th>
+                <th>
+                    Hora
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in full_table %}
+            <tr>
+                <td>
+                    {{ row["id"] }}
+                </td>
+                <td>
+                    {{ row["bodega"] }}
+                </td>
+                <td>
+                    {{ row["panaderia"] }}
+                </td>
+                <td>
+                    {{ row["total"] }}
+                </td>
+                <td>
+                    {{ row["dia"] }}
+                </td>
+                <td>
+                    {{ row["mes"] }}
+                </td>
+                <td>
+                    {{ row["año"] }}
+                </td>
+                <td>
+                    {{ row["hora"] }}
+                </td>
+                <td>
+                    <form action="/delete" method="post">
+                        <input name="id" type="hidden" value="{{ row['id'] }}">
+                        <input type="submit" value="Borrar" class="input-submit font">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+        <a href="/" class="hiper-link">Agregar venta</a>
+    </div>
+</main>
+
+{% endblock %}

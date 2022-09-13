@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %} Agregar venta {% endblock %}
+
+{% block body %}
+
+<header>
+    ERP - Panadería Moisés
+</header>
+<main class="font">
+    <form action="/" method="post" class="input-form">
+        <div>
+            <label class="input-label">Bodega:</label>
+            <input autocomplete="off" type="number" step="0.01" name="bodega" class="input-number font">    
+        </div>
+        <div>
+            <label class="input-label">Panadería:</label>
+            <input autocomplete="off" type="number" step="0.01" name="panaderia" class="input-number font">
+        </div>
+        <div>
+            <input type="submit" value="Enter" class="input-submit font">
+        </div>
+    </form>
+
+    <div>
+        <a href="/history" class="hiper-link">Historial</a>
+    </div>
+</main>
+
+{% endblock %}
